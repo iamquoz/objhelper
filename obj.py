@@ -109,7 +109,6 @@ print("kst change: " + str(round(kstArr[0]/kstArr[-1], 1)))
 plt.subplot(3, 3, 1)
 plt.scatter(years, ktoArr)
 plt.title('Kто')
-plt.autoscale(False)	
 plt.plot(	range(len(ktoArr)), ktoArr)
 plt.xlim(xmin = years[0] - 1, xmax = years[-1])
 
