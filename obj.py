@@ -96,7 +96,7 @@ for datum in arr:
 	kchArr.append(round(datum.kch(), 1))
 	knArr.append(round(datum.kn(), 1))
 	ktArr.append(round(datum.kt(), 1))
-	kst1Arr.append(round(datum.kst(), 1))
+	kst1Arr.append(round(datum.kst1(), 2))
 	kzArr.append(round(datum.kz(), 1))
 	kptArr.append(round(datum.kpt(), 1))
 	kstArr.append(round(datum.kst(), 1))
@@ -134,14 +134,14 @@ plt.xlim(xmin = years[0] - 1, xmax = years[-1] + 1)
 
 plt.subplot(4, 3, 4)
 plt.scatter(years, knArr)
-plt.title('Kч')
+plt.title('Kн')
 plt.plot(	range(len(knArr)), knArr)
 plt.xlim(xmin = years[0] - 1, xmax = years[-1] + 1)
 
 
 plt.subplot(4, 3, 5)
 plt.scatter(years, kchArr)
-plt.title('Kн')
+plt.title('Kч')
 plt.plot(	range(len(kchArr)), kchArr)
 plt.xlim(xmin = years[0] - 1, xmax = years[-1] + 1)
 
