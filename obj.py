@@ -33,6 +33,9 @@ class Data:
 	def kch(self):
 		return self.n * 1000 / self.r
 
+	def kn(self):
+		return self.d * 1000 / self.r
+
 	def kt(self):
 		return self.d / self.n
 
@@ -49,7 +52,7 @@ class Data:
 		return self.np * 10000 / self.r
 
 	def __str__(self):
-		return str(round(self.kto(), 1)) + ' ' + str(round(self.kte(), 1)) + ' ' + str(round(self.ktte(), 1)) + ' ' + str(round(self.kch(), 1)) + ' ' + str(round(self.kt(), 1)) + ' ' + str(round(self.kst1(), 1)) + ' ' + str(round(self.kz(), 1)) + ' ' + str(round(self.kpt(), 1)) + ' ' + str(round(self.kst(), 1)) + '\n'
+		return str(round(self.kto(), 1)) + ' ' + str(round(self.kte(), 1)) + ' ' + str(round(self.ktte(), 1)) + ' ' + str(round(self.kch(), 1)) + ' ' + str(round(self.kn(), 1)) + ' '+ str(round(self.kt(), 1)) + ' ' + str(round(self.kst1(), 1)) + ' ' + str(round(self.kz(), 1)) + ' ' + str(round(self.kpt(), 1)) + ' ' + str(round(self.kst(), 1)) + '\n'
 
 
 lineIn = sys.stdin.read()
@@ -78,6 +81,7 @@ ktoArr = []
 kteArr = []
 ktteArr= []
 kchArr = []
+knArr = []
 ktArr  = []
 kst1Arr = []
 kzArr  = []
@@ -90,6 +94,7 @@ for datum in arr:
 	kteArr.append(round(datum.kte(), 1))
 	ktteArr.append(round(datum.ktte(), 1))
 	kchArr.append(round(datum.kch(), 1))
+	knArr.append(round(datum.kn(), 1))
 	ktArr.append(round(datum.kt(), 1))
 	kst1Arr.append(round(datum.kst(), 1))
 	kzArr.append(round(datum.kz(), 1))
@@ -100,68 +105,76 @@ print("kto change: " + str(round(ktoArr[-1]/ktoArr[0], 2)))
 print("kte change: " + str(round(kteArr[-1]/kteArr[0], 2)))
 print("ktte change: " + str(round(ktteArr[-1]/ktteArr[0], 2)))
 print("kch change: " + str(round(kchArr[-1]/kchArr[0], 1)))
+print("kn change: " + str(round(kchArr[-1]/kchArr[0], 1)))
 print("kt change: " + str(round(ktArr[-1]/ktArr[0], 2)))
 print("kst1 change: " + str(round(kst1Arr[-1]/kst1Arr[0], 2)))
 print("kz change: " + str(round(kzArr[-1]/kzArr[0], 2)))
 print("kpt change: " + str(round(kptArr[-1]/kptArr[0], 2)))
 print("kst change: " + str(round(kstArr[-1]/kstArr[0], 2)))
 
-plt.subplot(3, 3, 1)
+plt.subplot(4, 3, 1)
 plt.scatter(years, ktoArr)
 plt.title('Kто')
 plt.plot(	range(len(ktoArr)), ktoArr)
 plt.xlim(xmin = years[0] - 1, xmax = years[-1] + 1)
 
-plt.subplot(3, 3, 2)
+plt.subplot(4, 3, 2)
 plt.scatter(years, kteArr)
 plt.title('Kте')
 plt.plot(	range(len(kteArr)), kteArr)
 plt.xlim(xmin = years[0] - 1, xmax = years[-1] + 1)
 
 
-plt.subplot(3, 3, 3)
+plt.subplot(4, 3, 3)
 plt.scatter(years, ktteArr)
 plt.title('Kтте')
 plt.plot(	range(len(ktteArr)), ktteArr)
 plt.xlim(xmin = years[0] - 1, xmax = years[-1] + 1)
 
 
-plt.subplot(3, 3, 4)
-plt.scatter(years, kchArr)
+plt.subplot(4, 3, 4)
+plt.scatter(years, knArr)
 plt.title('Kч')
+plt.plot(	range(len(knArr)), knArr)
+plt.xlim(xmin = years[0] - 1, xmax = years[-1] + 1)
+
+
+plt.subplot(4, 3, 5)
+plt.scatter(years, kchArr)
+plt.title('Kн')
 plt.plot(	range(len(kchArr)), kchArr)
 plt.xlim(xmin = years[0] - 1, xmax = years[-1] + 1)
 
 
-plt.subplot(3, 3, 5)
+plt.subplot(4, 3, 7)
 plt.scatter(years, ktArr)
 plt.title('Kт')
 plt.plot(	range(len(ktArr)), ktArr)
 plt.xlim(xmin = years[0] - 1, xmax = years[-1] + 1)
 
 
-plt.subplot(3, 3, 6)
+plt.subplot(4, 3, 8)
 plt.scatter(years, kst1Arr)
 plt.title('Kст1')
 plt.plot(	range(len(kst1Arr)), kst1Arr)
 plt.xlim(xmin = years[0] - 1, xmax = years[-1] + 1)
 
 
-plt.subplot(3, 3, 7)
+plt.subplot(4, 3, 9)
 plt.scatter(years, kzArr)
 plt.title('Kз')
 plt.plot(	range(len(kzArr)), kzArr)
 plt.xlim(xmin = years[0] - 1, xmax = years[-1] + 1)
 
 
-plt.subplot(3, 3, 8)
+plt.subplot(4, 3, 10)
 plt.scatter(years, kptArr)
 plt.title('Kпт')
 plt.plot(	range(len(kptArr)), kptArr)
 plt.xlim(xmin = years[0] - 1, xmax = years[-1] + 1)
 
 
-plt.subplot(3, 3, 9)
+plt.subplot(4, 3, 11)
 plt.scatter(years, kstArr)
 plt.title('Kст')
 plt.plot(	range(len(kstArr)), kstArr)
